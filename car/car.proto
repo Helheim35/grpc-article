@@ -1,0 +1,35 @@
+syntax = "proto3";
+package car;
+
+message Car {
+  string identifier = 1;
+  string name = 2;
+}
+
+message CreateCarRequest {
+  string name = 1;
+  enum Color {
+    BLACK = 0;
+    WHITE = 1;
+    RED = 2;
+  }
+  Color color = 2;
+  bool cooler = 3;
+}
+
+message CreateCarResponse {
+  string identifier = 1;
+}
+
+message ListCarRequest {
+  bool cooler = 1;
+}
+
+message ListCarResponse {
+  repeated Car cars = 1;
+}
+
+service Factory {
+  rpc Build(CreateCarRequest) returns (CreateCarResponse);
+  rpc List(ListCarRequest) returns (ListCarResponse);
+}
