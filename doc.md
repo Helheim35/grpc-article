@@ -1,9 +1,11 @@
-![Image of Yaktocat](resources/img/grpc-logo.png)
+![GRPC](resources/img/grpc-logo.png)
 
 # gRCP
 
 gRPC est un framework open source RPC (remote call procedure) basé sur HTTP/2, initialement dévéloppé par Google. 
 Ce dernier facilite la création d'APIs performantes et scalables dans un nombre important de langage. 
+
+![GRPC HOW](resources/img/grpc-how.png)
 
 Dans cette article nous verrons comment mettre en oeuvre une API à l'aide de gRPC, Protobuf et Go. 
 
@@ -254,6 +256,8 @@ Couplé à gRPC on obtient :
 gRPC est une "alternative" plus avantagueuse par rapport à REST. Notamment, lorsque l'on souhaite définir une API entre 
 service (microservice), robuste, performante et simple à mettre en oeuvre. A l'inverse, la mise en oeuvre de gRPC pour 
 les développements front end restent encore impossible.
+
+![GRPC DOG](resources/img/grpc-mascot.jpg)
 
 Liens utiles :
 https://grpc.io/blog
