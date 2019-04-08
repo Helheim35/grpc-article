@@ -1,3 +1,5 @@
+![Image of Yaktocat](resources/img/grpc-logo.png)
+
 # gRCP
 
 gRPC est un framework open source RPC (remote call procedure) basé sur HTTP/2, initialement dévéloppé par Google. 
