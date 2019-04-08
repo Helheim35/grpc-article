@@ -1,6 +1,5 @@
 ![GRPC](resources/img/grpc-logo.png)
-
-# gRCP
+# 
 
 gRPC est un framework open source RPC (remote call procedure) basé sur HTTP/2, initialement dévéloppé par Google. 
 Ce dernier facilite la création d'APIs performantes et scalables dans un nombre important de langage. 
@@ -8,10 +7,6 @@ Ce dernier facilite la création d'APIs performantes et scalables dans un nombre
 ![GRPC HOW](resources/img/grpc-how.png)
 
 Dans cette article nous verrons comment mettre en oeuvre une API à l'aide de gRPC, Protobuf et Go. 
-
-## Pré requis
-
-Télécharger et installer Go : https://golang.org/dl/
 
 ## L'interface : Protocol Buffers
 
@@ -27,15 +22,22 @@ Pour un complément d'information, notament sur les langages supportés par Prot
 
 ### Mise en place
 
+#### Pré-requis 
+ 
+Avoir un l'environnement Go est installé et configuré. 
+Si cela n'est pas le cas : https://golang.org/dl/
+
+#### protoc
+
 Cette librairie va founir l'outil `protoc` qui va nous permettre de générer le client/serveur de notre future API.
 
 ```sh
     $ go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
-### My car factory
+### La pratique : My car factory 🏎
 
-Voici l'ébauche d'un service qui permet de créer des voitures 🏎, et de lister les véhicules créés. 
+Voici l'ébauche d'un service qui permet de créer des voitures, et de lister les véhicules créés. 
 
 ```proto
 syntax = "proto3"; 
@@ -76,11 +78,14 @@ service Factory {
 ```
 
 Les premières lignes du fichier `.proto` permettent de définir le protocol utilisé ainsi que de déclarer le package. 
-Dans le cas du Go, il s'agit du package go.
+*Dans le cas du Go, il s'agit du package go.*
 
 Les déclarations `message` définissent les données qui vont être sérialisées et échangées sur le réseau. 
-Les `= 1`,`= 2` sont appelés `tags` et sont utilisés par les champs une fois encodé. Si un des champs n'est pas 
-explicitement renseigné, il prend alors sa valeur par défaut. 
+Les `= 1`,`= 2` sont appelés `tags` et sont utilisés par les champs une fois encodé. 
+
+En `proto3`, si l'un des champs n'est pas explicitement renseigné, il prend alors sa valeur par défaut. 
+*Soit en Go: 0 pour les valeurs numériques, "" pour les chaînes vides, et false pour les booléens.*
+
 
 Et pour finir, la partie `service` expose les opérations de l'API
 
@@ -95,7 +100,7 @@ Voici la commande pour générer le code go à partir de la déclaration protobu
 Dans notre cas, voici la commande à executer : 
 
 ```sh
-	$ protoc -I=car --go_out=plugins=grpc:car ./car/*.proto
+    $ protoc -I=car --go_out=plugins=grpc:car ./car/*.proto
 ```
 
 Il est interessant de noter qu'on ajoute `plugins=grpc` à notre compilation. Cela va générer un code Go compatible avec 
@@ -243,9 +248,9 @@ les messages, il attend la réponse du serveur.
 En résumé, protobuf offre :
 * un support multi langage ;
 * un mécanisme pour sérialiser/déserialiser ;
-* une des interfaces pour des services RPC ;
+* des interfaces pour des services RPC ;
 * un typage et une validation des champs ;
-* moins de boilerplate code !
+* moins de boilerplate code à l'utilisation !
 
 Couplé à gRPC on obtient :
 * performance et robutesse ;
@@ -253,13 +258,14 @@ Couplé à gRPC on obtient :
 * duplex streaming ;
 * un code auto-généré.
 
-gRPC est une "alternative" plus avantagueuse par rapport à REST. Notamment, lorsque l'on souhaite définir une API entre 
-service (microservice), robuste, performante et simple à mettre en oeuvre. A l'inverse, la mise en oeuvre de gRPC pour 
-les développements front end restent encore impossible.
+gRPC est une alternative sérieuse à opposer à REST. Notamment pour définir une API entre service, robuste, performante 
+et simple à mettre en oeuvre. 
+Cependant, les développements front-end semble plus laborieux à mettre en oeuvre, 
+mais pas impossible : https://grpc.io/blog/state-of-grpc-web.
 
 ![GRPC DOG](resources/img/grpc-mascot.jpg)
 
-Liens utiles :
-https://grpc.io/blog
-https://github.com/grpc/grpc-go/tree/master/examples/features
-https://github.com/grpc-ecosystem/go-grpc-middleware/
+Liens utiles : <br>
+https://grpc.io/blog <br>
+https://github.com/grpc/grpc-go/tree/master/examples/features <br>
+https://github.com/grpc-ecosystem/go-grpc-middleware/ <br>
