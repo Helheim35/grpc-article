@@ -102,7 +102,7 @@ Dans notre cas, voici la commande à exécuter :
     $ protoc -I=car --go_out=plugins=grpc:car ./car/*.proto
 ```
 
-Il est interessant de noter qu'on ajoute `plugins=grpc` à notre compilation. Cela va générer un code Go compatible avec 
+Il est intéressant de noter qu'on ajoute `plugins=grpc` à notre compilation. Cela va générer un code Go compatible avec 
 gRPC.
 
 ## Go
