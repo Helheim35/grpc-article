@@ -13,7 +13,7 @@ Dans cette article nous verrons comment mettre en oeuvre une API à l'aide de gR
 Définition officielle : 
 > "Protocol buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data."
 
-Pour résumer, Protocol Buffer ou Protobuf permet d'encoder/décoder des données dans un format universel dans le but d'en profiter facilement dans différents langages. 
+Pour éclaircir, Protocol Buffer ou Protobuf permet d'encoder/décoder des données dans un format universel dans le but d'en profiter facilement dans différents langages. 
 Tout cela en assurant un grande capacité d'échange sans surcharger le réseau. 
 
 Techniquement, Protobuf sérialise les données en binaire et fourni les outils pour encoder et décoder les messages.
@@ -78,7 +78,6 @@ service Factory {
 ```
 
 Les premières lignes du fichier `.proto` permettent de définir le protocol utilisé ainsi que de déclarer le package. 
-*Dans le cas du Go, il s'agit du package go.*
 
 Les déclarations `message` définissent les données qui vont être sérialisées et échangées sur le réseau. 
 Les `= 1`,`= 2` sont appelés `tags` et sont utilisés par les champs une fois encodé. 
