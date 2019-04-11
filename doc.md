@@ -24,7 +24,7 @@ Pour un complément d'information, notament sur les langages supportés par Prot
 
 #### Pré-requis 
  
-Avoir l'environnement Go est installé et configuré. 
+Avoir l'environnement Go installé et configuré. 
 Si cela n'est pas le cas : https://golang.org/dl/
 
 #### protoc
@@ -80,7 +80,7 @@ service Factory {
 Les premières lignes du fichier `.proto` permettent de définir le protocol utilisé ainsi que de déclarer le package. 
 
 Les déclarations `message` définissent les données qui vont être sérialisées et échangées sur le réseau. 
-Les `= 1`,`= 2` sont appelés `tags` et sont utilisés par les champs une fois encodé. 
+Les `= 1`,`= 2` sont appelés `tags` et sont utilisés par les champs une fois encodés. 
 
 En `proto3`, si l'un des champs n'est pas explicitement renseigné, il prend alors sa valeur par défaut. 
 *Soit en Go: 0 pour les valeurs numériques, "" pour les chaînes vides, et false pour les booléens.*
@@ -96,7 +96,7 @@ Voici la commande pour générer le code go à partir de la déclaration protobu
     $ protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/*.proto
 ```
 
-Dans notre cas, voici la commande à executer : 
+Dans notre cas, voici la commande à exécuter : 
 
 ```sh
     $ protoc -I=car --go_out=plugins=grpc:car ./car/*.proto
@@ -109,7 +109,7 @@ gRPC.
 
 ### Serveur
 
-Implémentation basique coté serveur: 
+Implémentation basique côté serveur: 
 
 
 ```go
@@ -148,7 +148,7 @@ Démarrer le server :
 
 ### Client
 
-Implémentation basique coté client :
+Implémentation basique côté client :
 ```go
 ...
 const address = ":51001"
@@ -175,7 +175,7 @@ func main() {
 }
 ```
 
-Executer le client :
+Exécuter le client :
 ```sh
     $ go run client/main.go
 ```
