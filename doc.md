@@ -2,7 +2,7 @@
 # 
 
 gRPC est un framework open source RPC (remote call procedure) basé sur HTTP/2, initialement dévéloppé par Google. 
-Ce dernier facilite la création d'APIs performantes et scalables dans un nombre important de langage. 
+Ce dernier facilite la création d'APIs performantes et scalables dans un nombre important de langages. 
 
 ![GRPC HOW](resources/img/grpc-how.png)
 
@@ -24,7 +24,7 @@ Pour un complément d'information, notament sur les langages supportés par Prot
 
 #### Pré-requis 
  
-Avoir un l'environnement Go est installé et configuré. 
+Avoir l'environnement Go est installé et configuré. 
 Si cela n'est pas le cas : https://golang.org/dl/
 
 #### protoc
@@ -201,7 +201,7 @@ Et au format timeout :
 
 ### Errors
 
-gRPC dispose d'une liste d'erreurs standardisée, à l'instar des codes status HTTP :
+gRPC dispose d'une liste d'erreurs standardisées, à l'instar des codes status HTTP :
 ```go 
 st := status.New(codes.ResourceExhausted, "Request limit exceeded.")
 return nil, st.Err()
@@ -226,19 +226,19 @@ unary, client streaming, server streaming et bidirectional streaming.
 Dans nos exemples, on a vu le cas le plus courant: "unary" qui permet de réaliser un appel normal avec une réponse pour 
 une requête.
 
-Voici la liste des service de streaming à disposition :
+Voici la liste des services de streaming à disposition :
 * `server streaming` permet d'obtenir une réponse sous format de flux pour un appel
 ```go
     rpc ServerStream(Request) returns (stream Response) {}
 ```
 
-* `client streaming` permet d'envoyer une séquence de message à travers un flux. Une fois que le client a fini d'écrire 
+* `client streaming` permet d'envoyer une séquence de messages à travers un flux. Une fois que le client a fini d'écrire 
 les messages, il attend la réponse du serveur.
 ```go
     rpc ClientStream(stream Request) returns (Response) {}
 ```
 
-* `bidirectional streaming` permet le mixte des deux précédant, avec un flux en écriture et un en lecture.
+* `bidirectional streaming` permet le mixte des deux précédents, avec un flux en écriture et un en lecture.
 ```go
     rpc Bidirectional(stream Request) returns (stream Response){}
 ```
@@ -258,10 +258,10 @@ Couplé à gRPC on obtient :
 * duplex streaming ;
 * un code auto-généré.
 
-gRPC est une alternative sérieuse à opposer à REST. Notamment pour définir une API entre service, robuste, performante 
+gRPC est une alternative sérieuse à opposer à REST. Notamment pour définir une API entre services, robuste, performante 
 et simple à mettre en oeuvre. 
-Cependant, les développements front-end semble plus laborieux à mettre en oeuvre, 
-mais pas impossible : https://grpc.io/blog/state-of-grpc-web.
+Cependant, les développements front-end semblent plus laborieux à mettre en oeuvre, 
+mais pas impossibles : https://grpc.io/blog/state-of-grpc-web.
 
 ![GRPC DOG](resources/img/grpc-mascot.jpg)
 
