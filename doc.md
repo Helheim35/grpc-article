@@ -18,7 +18,7 @@ Tout cela en assurant un grande capacité d'échange sans surcharger le réseau.
 
 Techniquement, Protobuf sérialise les données en binaire et fourni les outils pour encoder et décoder les messages.
 
-Pour un complément d'information, notament sur les langages supportés par Protobuf: https://github.com/protocolbuffers/protobuf
+Pour un complément d'information, notamment sur les langages supportés par Protobuf: https://github.com/protocolbuffers/protobuf
 
 ### Mise en place
 
