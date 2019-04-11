@@ -141,7 +141,7 @@ func main() {
 }
 ```
 
-Démarrer le server :
+Démarrer le serveur :
 ```sh
     $ go run server/main.go
 ```
@@ -220,7 +220,7 @@ Voici la liste des erreurs gRPC : https://github.com/grpc/grpc/blob/master/doc/s
 ### Stream
 
 Dans la réalité, gRPC permet de définir 4 types de méthode de service: 
-unary, client streaming, server streaming et bidirectional streaming.
+unary, client streaming, serveur streaming et bidirectional streaming.
 
 Dans nos exemples, on a vu le cas le plus courant: "unary" qui permet de réaliser un appel normal avec une réponse pour 
 une requête.
@@ -252,7 +252,7 @@ En résumé, protobuf offre :
 * moins de boilerplate code à l'utilisation !
 
 Couplé à gRPC on obtient :
-* performance et robutesse ;
+* performance et robustesse ;
 * une facilité à "scale" ;
 * duplex streaming ;
 * un code auto-généré.
